@@ -14,7 +14,7 @@ function getAvatar() {
     url: '/my/userinfo',
     success: function (res) {
       if (res.status !== 0) {
-        return layui.msg('获取头像失败')
+        return layui.layer.msg('获取头像失败')
       }
       if (res.data.user_pic === null) {
         $('.layui-nav-img').hide()
@@ -23,7 +23,7 @@ function getAvatar() {
         $('.defAvatar').hide()
       }
       var name = res.data.nickname || res.data.username
-      $('.defAvatar').html(name[0].toUpperCase())
+      $('.defAvatar').html(name[0])
       $('.welcome').html('欢迎 &nbsp;' + name)
     }
   })
